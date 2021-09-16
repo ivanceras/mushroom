@@ -1,0 +1,57 @@
+[package]
+name = "webapp-server"
+version = "0.1.0"
+authors = ["Jovansonlee Cesar <ivanceras@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+env_logger = "0.9"
+log = { version = "0.4"}
+hex = { version = "0.4.3", default-features = false, features = ["alloc"] }
+warp = "0.3"
+sauron = "0.34"
+tokio = { version = "1.9", features = ["full"] }
+serde_json = "1.0"
+webapp-client = { path = "../client" }
+
+[dependencies.mycelium]
+path = "../../"
+features = ["std"]
+
+[dependencies.node-template-runtime]
+path = "../../examples/substrate-node-template/runtime"
+
+[dependencies.clap]
+features = ["yaml"]
+version = "2.33"
+
+[dependencies.sp-keyring]
+git = "https://github.com/paritytech/substrate.git"
+tag = 'monthly-2021-07'
+version = '3.0.0'
+
+[dependencies.codec]
+package = "parity-scale-codec"
+features = ["derive"]
+version = "2.0.0"
+default-features = false
+
+[dependencies.sp-core]
+git = "https://github.com/paritytech/substrate.git"
+package = "sp-core"
+default-features = false
+features = ["full_crypto"]
+tag = 'monthly-2021-07'
+version = '3.0.0'
+
+[dependencies.balances]
+git = "https://github.com/paritytech/substrate.git"
+package = "pallet-balances"
+tag = 'monthly-2021-07'
+version = '3.0.0'
+
+[dependencies.system]
+git = "https://github.com/paritytech/substrate.git"
+package = "frame-system"
+tag = 'monthly-2021-07'
+version = '3.0.0'

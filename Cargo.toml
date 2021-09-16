@@ -1,0 +1,138 @@
+[package]
+name = "mushroom"
+version = "0.1.0"
+authors = ["Jovansonlee Cesar <ivanceras@gmail.com>, Supercomputing Systems AG <info@scs.ch>"]
+edition = "2018"
+
+[dependencies]
+hex = { version = "0.4.3", default-features = false, features = ["alloc"] }
+log = { version = "0.4", optional = true }
+primitive-types = { version = "0.6.1", optional = true, features = ["codec"] }
+serde = { version = "1.0", optional = true, features = ["derive"] }
+serde_json = { version = "1.0", optional = true }
+thiserror = { version = "1.0", optional = true }
+ws = { version = "0.9.1", optional = true, features = ["ssl"] }
+
+
+[dependencies.sp-core]
+git = "https://github.com/paritytech/substrate.git"
+package = "sp-core"
+default-features = false
+features = ["full_crypto"]
+version = "3.0.0"
+#branch = 'master'
+tag = 'monthly-2021-07'
+#rev = '83808aa8'
+
+
+[dependencies.codec]
+package = "parity-scale-codec"
+features = ["derive"]
+default-features = false
+version = '2.0.0'
+
+[dependencies.metadata]
+git = "https://github.com/paritytech/substrate.git"
+package = "frame-metadata"
+default-features = false
+version = "13.0.0"
+#branch = 'master'
+tag = 'monthly-2021-07'
+#rev = '83808aa8'
+
+[dependencies.sp-version]
+git = "https://github.com/paritytech/substrate.git"
+package = "sp-version"
+optional = true
+version = "3.0.0"
+#branch = 'master'
+tag = 'monthly-2021-07'
+#rev = '83808aa8'
+
+[dependencies.balances]
+git = "https://github.com/paritytech/substrate.git"
+package = "pallet-balances"
+optional = true
+version = "3.0.0"
+#branch = 'master'
+tag = 'monthly-2021-07'
+#rev = '83808aa8'
+
+[dependencies.system]
+git = "https://github.com/paritytech/substrate.git"
+package = "frame-system"
+optional = true
+version = "3.0.0"
+#branch = 'master'
+tag = 'monthly-2021-07'
+#rev = '83808aa8'
+
+[dependencies.sp-runtime]
+git = "https://github.com/paritytech/substrate.git"
+package = "sp-runtime"
+default-features = false
+version = "3.0.0"
+#branch = 'master'
+tag = 'monthly-2021-07'
+#rev = '83808aa8'
+
+[dependencies.support]
+git = "https://github.com/paritytech/substrate.git"
+package = "frame-support"
+default-features = false
+version = "3.0.0"
+#branch = 'master'
+tag = 'monthly-2021-07'
+#rev = '83808aa8'
+
+[dependencies.sp-std]
+git = "https://github.com/paritytech/substrate.git"
+package = "sp-std"
+default-features = false
+version = "3.0.0"
+#branch = 'master'
+tag = 'monthly-2021-07'
+#rev = '83808aa8'
+
+[dev-dependencies.keyring]
+git = "https://github.com/paritytech/substrate.git"
+package = "sp-keyring"
+version = "3.0.0"
+#branch = 'master'
+tag = 'monthly-2021-07'
+#rev = '83808aa8'
+
+[dev-dependencies.clap]
+features = ["yaml"]
+version = "2.33"
+
+[features]
+default = ["std", "ws-client"]
+std = [
+	"sp-core/std",
+	"codec/std",
+	"metadata/std",
+	"sp-version",
+	"balances",
+	"system",
+	"sp-runtime/std",
+	"support/std",
+	"sp-std/std",
+	"serde/std",
+	"serde_json",
+	"log",
+	"hex/std",
+	"primitive-types",
+	"thiserror",
+]
+ws-client = ["ws"]
+
+# need to add this for the app_crypto macro
+full_crypto = []
+
+
+[dev-dependencies]
+env_logger = "0.7"
+
+[dev-dependencies.node-template-runtime]
+path = "./examples/substrate-node-template/runtime"
