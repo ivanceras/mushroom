@@ -130,6 +130,5 @@ fn json_req<S: Serialize>(method: &str, params: S, id: u32) -> Value {
         "jsonrpc": "2.0",
         "id": id.to_string(),
     });
-    println!("\n\n{}", serde_json::to_string_pretty(&ret).unwrap());
     ret
 }
