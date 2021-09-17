@@ -4,7 +4,7 @@
 #![no_main]
 
 // DUT
-extern crate mycelium;
+extern crate mushroom;
 
 // The libc crate allows importing functions from C.
 extern crate libc;

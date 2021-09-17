@@ -1,7 +1,7 @@
 use clap::{load_yaml, App};
 use codec::Decode;
 use log::{debug, error};
-use mycelium::AccountInfo;
+use mushroom::AccountInfo;
 use sp_core::sr25519;
 use sp_core::H256 as Hash;
 use sp_keyring::AccountKeyring;
@@ -9,10 +9,10 @@ use std::sync::mpsc::channel;
 // This module depends on node_runtime.
 // To avoid dependency collisions, node_runtime has been removed from the substrate-api-client library.
 // Replace this crate by your own if you run a custom substrate node to get your custom events.
-use mycelium::rpc::WsRpcClient;
-use mycelium::utils::FromHexString;
-use mycelium::Api;
-use mycelium::Metadata;
+use mushroom::rpc::WsRpcClient;
+use mushroom::utils::FromHexString;
+use mushroom::Api;
+use mushroom::Metadata;
 use node_template_runtime::Event;
 use std::convert::TryFrom;
 

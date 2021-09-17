@@ -14,7 +14,7 @@ panic = "abort"
 [dependencies]
 libc = { version="0.2", default-features=false }
 
-[dependencies.mycelium] 
+[dependencies.mushroom] 
 path = ".."
 default-features=false
 features=["full_crypto"]

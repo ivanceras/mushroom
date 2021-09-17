@@ -14,7 +14,7 @@ tokio = { version = "1.9", features = ["full"] }
 serde_json = "1.0"
 webapp-client = { path = "../client" }
 
-[dependencies.mycelium]
+[dependencies.mushroom]
 path = "../../"
 features = ["std"]
 

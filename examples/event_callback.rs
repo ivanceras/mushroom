@@ -27,9 +27,9 @@ use sp_core::H256 as Hash;
 // Replace this crate by your own if you run a custom substrate node to get your custom events.
 use node_template_runtime::Event;
 
-use mycelium::rpc::WsRpcClient;
-use mycelium::utils::FromHexString;
-use mycelium::Api;
+use mushroom::rpc::WsRpcClient;
+use mushroom::utils::FromHexString;
+use mushroom::Api;
 
 fn main() {
     env_logger::init();

@@ -23,8 +23,8 @@ use keyring::AccountKeyring;
 use node_template_runtime::{BalancesCall, Call};
 use sp_core::crypto::Pair;
 
-use mycelium::rpc::WsRpcClient;
-use mycelium::{compose_extrinsic_offline, Api, UncheckedExtrinsicV4, XtStatus};
+use mushroom::rpc::WsRpcClient;
+use mushroom::{compose_extrinsic_offline, Api, UncheckedExtrinsicV4, XtStatus};
 
 fn main() {
     env_logger::init();

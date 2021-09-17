@@ -23,8 +23,8 @@ use clap::App;
 
 use sp_core::sr25519;
 
-use mycelium::rpc::WsRpcClient;
-use mycelium::Api;
+use mushroom::rpc::WsRpcClient;
+use mushroom::Api;
 use node_template_runtime::{Block, Header};
 use sp_runtime::generic::SignedBlock;
 use std::sync::mpsc::channel;

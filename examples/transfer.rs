@@ -19,8 +19,8 @@ use keyring::AccountKeyring;
 use sp_core::crypto::Pair;
 use sp_runtime::MultiAddress;
 
-use mycelium::rpc::WsRpcClient;
-use mycelium::{Api, XtStatus};
+use mushroom::rpc::WsRpcClient;
+use mushroom::{Api, XtStatus};
 
 fn main() {
     env_logger::init();

@@ -1,5 +1,5 @@
-use mycelium::rpc::json_req::author_submit_extrinsic;
-use mycelium::{Api, ApiClientError, ApiResult, FromHexString, Hash, RpcClient, Value, XtStatus};
+use mushroom::rpc::json_req::author_submit_extrinsic;
+use mushroom::{Api, ApiClientError, ApiResult, FromHexString, Hash, RpcClient, Value, XtStatus};
 struct MyClient {
     // pick any request crate, such as ureq::Agent
     _inner: (),

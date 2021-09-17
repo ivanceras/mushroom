@@ -19,8 +19,8 @@ use std::sync::mpsc::channel;
 
 use clap::{load_yaml, App};
 use codec::Decode;
-use mycelium::rpc::WsRpcClient;
-use mycelium::Api;
+use mushroom::rpc::WsRpcClient;
+use mushroom::Api;
 use sp_core::sr25519;
 use sp_runtime::AccountId32 as AccountId;
 

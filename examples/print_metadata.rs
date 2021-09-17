@@ -25,8 +25,8 @@ use clap::App;
 
 use sp_core::sr25519;
 
-use mycelium::rpc::WsRpcClient;
-use mycelium::{Api, Metadata};
+use mushroom::rpc::WsRpcClient;
+use mushroom::{Api, Metadata};
 
 fn main() {
     env_logger::init();

@@ -17,9 +17,9 @@
 use clap::{load_yaml, App};
 
 use keyring::AccountKeyring;
-use mycelium::rpc::WsRpcClient;
-use mycelium::AccountInfo;
-use mycelium::Api;
+use mushroom::rpc::WsRpcClient;
+use mushroom::AccountInfo;
+use mushroom::Api;
 
 fn main() {
     env_logger::init();

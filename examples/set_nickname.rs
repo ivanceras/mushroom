@@ -20,8 +20,8 @@ use clap::{load_yaml, App};
 use keyring::AccountKeyring;
 use sp_core::crypto::Pair;
 
-use mycelium::rpc::WsRpcClient;
-use mycelium::{compose_extrinsic, Api, UncheckedExtrinsicV4, XtStatus};
+use mushroom::rpc::WsRpcClient;
+use mushroom::{compose_extrinsic, Api, UncheckedExtrinsicV4, XtStatus};
 
 fn main() {
     env_logger::init();
