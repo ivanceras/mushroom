@@ -1,9 +1,12 @@
+use futures::future::join;
 use sauron::prelude::*;
 use serde_json;
 use std::net::SocketAddr;
+use std::thread;
 use warp::{http::Response, Filter};
 use webapp_client::{App, Data, FetchStatus};
 
+mod event_service;
 mod node_events;
 
 // Replace this with whatever data you're actually trying to return
@@ -23,6 +26,7 @@ static INDEX_HTML: &'static str = include_str!("../../client/static/index.html")
 
 #[tokio::main]
 async fn main() {
+    tokio::spawn(event_service::start_websocket_server());
     let api_call = warp::path!("api" / String)
         .map(|name| serde_json::to_string(&fake_api_call(name)).unwrap());
 
@@ -62,7 +66,7 @@ async fn main() {
 
     let routes = warp::get().and(root.or(named).or(api_call).or(static_files));
 
-    let socket: SocketAddr = ([127, 0, 0, 1], 3030).into();
+    let socket: SocketAddr = ([127, 0, 0, 1], 3131).into();
     println!("serve at http://{}:{}", socket.ip(), socket.port());
     warp::serve(routes).run(socket).await;
 }
