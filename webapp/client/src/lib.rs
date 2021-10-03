@@ -13,24 +13,27 @@ pub enum Msg {
     WebSocketMessage(String),
 }
 
-pub struct App {}
+pub struct App {
+    websocket: Option<WebSocket>,
+}
 
 impl Default for App {
     fn default() -> Self {
-        Self {}
+        Self { websocket: None }
     }
 }
 
 impl Application<Msg> for App {
     fn init(&mut self) -> Cmd<Self, Msg> {
         Cmd::new(move |program| {
-            let ws = WebSocket::new("ws://127.0.0.1:9002").expect("must open a websocket");
+            let websocket = WebSocket::new("ws://127.0.0.1:9002").expect("must open a websocket");
             let program2 = program.clone();
             let open_cb: Closure<dyn Fn(web_sys::Event)> = Closure::wrap(Box::new(move |event| {
                 program.dispatch(Msg::WebSocketOpen);
             }));
 
-            ws.add_event_listener_with_callback("open", open_cb.as_ref().unchecked_ref())
+            websocket
+                .add_event_listener_with_callback("open", open_cb.as_ref().unchecked_ref())
                 .expect("Unable to start interval");
             open_cb.forget();
 
@@ -45,7 +48,8 @@ impl Application<Msg> for App {
                     program2.dispatch(Msg::WebSocketMessage(message));
                 }));
 
-            ws.add_event_listener_with_callback("message", message_cb.as_ref().unchecked_ref())
+            websocket
+                .add_event_listener_with_callback("message", message_cb.as_ref().unchecked_ref())
                 .expect("Unable to start interval");
             message_cb.forget();
         })
