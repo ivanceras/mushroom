@@ -9,7 +9,7 @@ env_logger = "0.9"
 log = { version = "0.4"}
 hex = { version = "0.4.3", default-features = false, features = ["alloc"] }
 warp = "0.3"
-sauron = "0.34"
+sauron = "0.43"
 tokio = { version = "1.9", features = ["full"] }
 serde_json = "1.0"
 webapp-client = { path = "../client" }
@@ -57,3 +57,6 @@ git = "https://github.com/paritytech/substrate.git"
 package = "frame-system"
 tag = 'monthly-2021-07'
 version = '3.0.0'
+
+[patch.crates-io]
+sauron = { path = "../../../sauron" }
